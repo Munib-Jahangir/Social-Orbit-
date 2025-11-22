@@ -1,0 +1,116 @@
+/* Profile Page Styles */
+.profile-layout {
+    min-height: 100vh;
+    background: var(--bg-primary);
+}
+
+.profile-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+    padding-bottom: 80px; /* Space for bottom navigation */
+}
+
+.profile-header {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    position: relative;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: var(--radius-round);
+    border: 4px solid var(--accent-cyan);
+    object-fit: cover;
+    margin: 0 auto var(--spacing-md);
+}
+
+.profile-name {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+}
+
+.profile-username {
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-md);
+}
+
+.profile-bio {
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.profile-tabs {
+    display: flex;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-lg);
+    overflow: hidden;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: var(--spacing-md);
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+    background: rgba(0, 229, 255, 0.15);
+    color: var(--accent-cyan);
+}
+
+.profile-posts {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}

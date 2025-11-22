@@ -1,0 +1,57 @@
+/* NovaSocial Theme - Midnight Blue + Neon Cyan */
+:root {
+    /* Primary Colors */
+    --bg-primary: #0D1B2A;
+    --card-bg: #1B263B;
+    --accent-cyan: #00E5FF;
+    --accent-purple: #7B2CBF;
+    
+    /* Text Colors */
+    --text-primary: #E0E6ED;
+    --text-muted: #9BA9BC;
+    
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    --gradient-bg: linear-gradient(135deg, #0D1B2A 0%, #1B263B 100%);
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
+    --radius-round: 50%;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Z-index */
+    --z-modal: 1000;
+    --z-navbar: 100;
+    --z-dropdown: 50;
+}
+
+/* Light Theme (Optional) */
+[data-theme="light"] {
+    --bg-primary: #F5F7FA;
+    --card-bg: #FFFFFF;
+    --text-primary: #1B263B;
+    --text-muted: #657786;
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --glass-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}

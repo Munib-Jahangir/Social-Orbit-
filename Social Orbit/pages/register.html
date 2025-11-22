@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Social Orbit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-logo">
+                <h1> Social Orbit</h1>
+                <p>Create your account and start connecting</p>
+            </div>
+            
+            <div id="errorMessage" class="error-message hidden"></div>
+            <div id="successMessage" class="success-message hidden"></div>
+            
+            <form class="auth-form" id="registerForm">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <input type="password" id="password" class="form-input" placeholder="Create a password (min 6 characters)" required minlength="6">
+                </div>
+                
+                <div class="form-group">
+                    <label for="username">Username *</label>
+                    <input type="text" id="username" class="form-input" placeholder="Choose a unique username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bio">Bio (Optional)</label>
+                    <input type="text" id="bio" class="form-input" placeholder="Tell us about yourself">
+                </div>
+                
+                <div class="form-group">
+                    <label for="profilePic">Profile Picture URL (Optional)</label>
+                    <input type="url" id="profilePic" class="form-input" placeholder="https://example.com/image.jpg">
+                </div>
+                
+                <button type="submit" class="btn-primary">Create Account</button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { auth } from '../js/auth.js';
+        
+        // Force check authentication state on page load
+        if (auth.getCurrentUser()) {
+            // If user is still logged in, redirect to feed
+            window.location.href = 'feed.html';
+        }
+        
+        const registerForm = document.getElementById('registerForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const usernameInput = document.getElementById('username');
+        const bioInput = document.getElementById('bio');
+        const profilePicInput = document.getElementById('profilePic');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+        
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            errorMessage.classList.add('hidden');
+            successMessage.classList.add('hidden');
+            
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+            const username = usernameInput.value.trim();
+            const bio = bioInput.value.trim();
+            const profilePic = profilePicInput.value.trim();
+            
+            const result = auth.signup(name, email, password, username, bio, profilePic);
+            
+            if (result.success) {
+                showSuccess('Account created successfully! Redirecting...');
+                setTimeout(() => {
+                    window.location.href = 'feed.html';
+                    // Force reload to clear any state
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 100);
+                }, 1500);
+            } else {
+                showError(result.message);
+            }
+        });
+        
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.remove('hidden');
+        }
+        
+        function showSuccess(message) {
+            successMessage.textContent = message;
+            successMessage.classList.remove('hidden');
+        }
+        
+        // Check if already logged in
+        window.addEventListener('DOMContentLoaded', () => {
+            if (auth.getCurrentUser()) {
+                window.location.href = 'feed.html';
+            }
+        });
+    </script>
+</body>
+</html>
