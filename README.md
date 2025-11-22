@@ -3,9 +3,6 @@
 
 A modern, responsive social media web application built with vanilla JavaScript, HTML, and CSS. Social Orbit allows users to create accounts, share posts with text, images, and links, interact with other users through likes and comments, and manage their profiles.
 
-![Main Feed](main.png)
-![Login Screen](22.11.2025_14.56.19_REC.png)
-![Notifications](nootification.png)
 
 ## Features
 
